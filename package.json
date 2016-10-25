@@ -1,0 +1,15 @@
+{
+  "name": "thranslator",
+  "version": "1.0.0",
+  "main": "main.js",
+  "repository": {
+    "url": "git@github.com:Flative/thranslator.git",
+    "type": "git"
+  },
+  "author": "leejaedus <leejaeduss@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^1.4.4",
+    "typescript": "^2.0.3"
+  }
+}

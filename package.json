@@ -9,7 +9,9 @@
   "author": "leejaedus <leejaeduss@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "electron": "^1.4.4",
-    "typescript": "^2.0.3"
+    "electron": "^1.4.4"
+  },
+  "bin": {
+    "electron": "./node_modules/.bin/electron"
   }
 }

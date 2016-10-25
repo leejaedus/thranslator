@@ -9,9 +9,11 @@
   "author": "leejaedus <leejaeduss@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "electron": "^1.4.4"
+    "electron": "^1.4.4",
+    "flow-bin": "^0.33.0"
   },
   "bin": {
-    "electron": "./node_modules/.bin/electron"
+    "electron": "./node_modules/.bin/electron",
+    "flow": "./node_modules/.bin/flow"
   }
 }

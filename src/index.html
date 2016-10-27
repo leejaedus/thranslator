@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>헬로 월드!</title>
-  </head>
-  <body>
-    <h1>헬로 월드!</h1>
-    이 애플리케이션은 node <script>document.write(process.version)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    Electron <script>document.write(process.versions.electron)</script>을 사용합니다.
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>React App</title>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  {
+    const script = document.createElement('script');
+    const port = process.env.PORT || 3000;
+    script.src = (process.env.HOT) ? `http://localhost:${port}/dist/bundle.js` : '../dist/bundle.js';
+    document.write(script.outerHTML);
+  }
+</script>
+</body>
 </html>

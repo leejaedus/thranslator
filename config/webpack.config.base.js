@@ -4,7 +4,7 @@ import validate from 'webpack-validator';
 export default validate({
   module: {
     loaders: [{
-      test: /\.jsx?$/,
+      test: /\.js$/,
       loaders: ['babel-loader'],
       exclude: /node_modules/
     }, {

@@ -29,6 +29,9 @@
     "express": "^4.14.0",
     "flow-bin": "^0.33.0",
     "html-webpack-plugin": "^2.24.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-hot-loader": "^3.0.0-beta.6",
     "webpack": "^1.13.2",
     "webpack-dashboard": "^0.2.0",
     "webpack-dev-middleware": "^1.8.4",
@@ -47,8 +50,7 @@
     "dev": "concurrently --kill-others \"npm run hot-server\" \"npm run start-hot\""
   },
   "babel": {
-    "presets": [
-      "es2015"
-    ]
+    "presets": ["es2015", "stage-0", "react"],
+    "plugins": ["react-hot-loader/babel"]
   }
 }

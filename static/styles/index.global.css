@@ -1,0 +1,59 @@
+h1, h2 {
+  font-weight: 200;
+}
+
+h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 22px;
+}
+
+h5 {
+  font-size: 15px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+#root {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+.draggable {
+  -webkit-app-region: drag;
+}
+
+.nonDraggable {
+  -webkit-app-region: no-drag;
+}
+
+.middleOuter {
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}

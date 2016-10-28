@@ -8,7 +8,7 @@ const { BrowserWindow } = electron;
 let win;
 function createWindow () {
   // 새로운 브라우저 창을 생성합니다.
-  win = new BrowserWindow({ width: 1024, height: 768 });
+  win = new BrowserWindow({ width: 1024, height: 768, titleBarStyle: 'hidden' });
   // 그리고 현재 디렉터리의 index.html을 로드합니다.
   win.loadURL(`file://${__dirname}/../src/index.html`);
   // 개발자 도구를 엽니다.

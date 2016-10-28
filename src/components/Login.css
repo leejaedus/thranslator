@@ -1,0 +1,18 @@
+:local(#loginBackground) {
+  height: 100%;
+  background: url(../../static/images/login_frame_background.png);
+  text-align: center;
+}
+
+:local(#loginFrame) {
+  background: white;
+  padding: 40px 150px;
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid #E0E0E0;
+}
+
+:local(#loginLogo) {
+  font-size: 78px;
+  font-weight: 200;
+}

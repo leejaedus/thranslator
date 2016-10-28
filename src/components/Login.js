@@ -1,13 +1,13 @@
 /* @flow */
+import { connect } from 'react-redux';
+import request from '../request';
 import { remote } from 'electron';
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import * as Actions from '../action';
-import request from '../request';
+import styles from './Login.css';
 
-class App extends React.Component {
+class Login extends React.Component {
   loginWithGitHub() {
-    // Your GitHub Applications Credentials
+    // Your GitHub applications Credentials
     const options = {
       client_id: 'dce139e84f0222db7a45',
       client_secret: 'dbbdac3db0976c2f9b73838d0863c256bc271a1a',
@@ -15,9 +15,9 @@ class App extends React.Component {
     };
 
     // Build the OAuth consent page URL
-    let authWindow = new remote.BrowserWindow({ width: 800, height: 600, show: false, 'node-integration': false });
+    let authWindow = new remote.BrowserWindow({ width: 500, height: 600, show: false, 'node-integration': false });
     const githubUrl = 'https://github.com/login/oauth/authorize?';
-    const authUrl = githubUrl + 'client_id=' + options.client_id + '&scope=' + options.scopes;
+    const authUrl = `${githubUrl}client_id=${options.client_id}&scope=${options.scopes.toString()}`;
     authWindow.loadURL(authUrl);
     authWindow.show();
 
@@ -36,7 +36,7 @@ class App extends React.Component {
       const code = (raw_code && raw_code.length > 1) ? raw_code[1] : null;
       const error = /\?error=(.+)$/.exec(url);
 
-      if (code || error) {
+      if ((code || error) && authWindow != null) {
         // Close the browser if code found or error
         authWindow.destroy();
       }
@@ -45,8 +45,7 @@ class App extends React.Component {
       if (code) {
         requestGithubToken(options, code);
       } else if (error) {
-        alert('Oops! Something went wrong and we couldn\'t' +
-          'log you in using Github. Please try again.');
+        alert('Oops! Something went wrong and we couldn\'t log you in using Github. Please try again.');
       }
     };
 
@@ -67,20 +66,33 @@ class App extends React.Component {
   }
 
   render() {
-    let { dispatch, text } = this.props;
-
     return (
-      <div>
-        <h1>Text : <span>{text}</span></h1>
-        <button onClick={() => dispatch(Actions.defaultAction("TypeA"))}>TypeA</button>
-        <button onClick={() => dispatch(Actions.defaultAction("TypeB"))}>TypeB</button>
-        <button onClick={() => dispatch(Actions.defaultAction("TypeC"))}>TypeC</button>
-        <button onClick={this.loginWithGitHub}>Login With GitHub</button>
+      <div id={styles.loginBackground}>
+        <div className="middleOuter">
+          <div className="middle">
+            <div id={styles.loginFrame}>
+              <h2>사용자 로그인</h2>
+              <br/>
+              <br/>
+              <br/>
+              {/*<button onClick={() => dispatch(Actions.defaultAction("Thranslator"))}>TypeA</button>*/}
+              {/*<button onClick={() => dispatch(Actions.defaultAction("TypeB"))}>TypeB</button>*/}
+              {/*<button onClick={() => dispatch(Actions.defaultAction("TypeC"))}>TypeC</button>*/}
+
+              <button
+                className="btn btn-block btn-social btn-github"
+                onClick={this.loginWithGitHub}
+              >
+                <span className="fa fa-github"></span> Sign in with GitHub
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 }
-App.propTypes = {
+Login.propTypes = {
   text: PropTypes.string.isRequired,
 };
 function select(state) {
@@ -88,4 +100,4 @@ function select(state) {
     text: state.text,
   };
 }
-export default connect(select)(App);
+export default connect(select)(Login);

@@ -3,19 +3,19 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
 
-const App = require('./components/App').default;
+const Login = require('./components/Login').default;
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Login />
   </Provider>
   , document.getElementById('root'));
 
 if (module.hot) {
-  module.hot.accept('./components/App', () => {
-    const NextApp = require('./components/App').default;
+  module.hot.accept('./components/Login', () => {
+    const NextLogin = require('./components/Login').default;
     ReactDOM.render(
       <Provider store={store}>
-        <NextApp />
+        <NextLogin />
       </Provider>
       , document.getElementById('root')
     );

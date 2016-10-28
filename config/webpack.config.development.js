@@ -41,6 +41,9 @@ export default validate(merge(baseConfig, {
         'style-loader',
         'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
       ]
+    },{
+      test: /\.(png|jpg|jpeg)$/,
+      loader: 'url-loader',
     }]
   },
 

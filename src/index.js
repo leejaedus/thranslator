@@ -1,16 +1,23 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import App from './components/App';
+import { Provider } from 'react-redux';
+import store from './store';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const App = require('./components/App').default;
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+  , document.getElementById('root'));
 
 if (module.hot) {
   module.hot.accept('./components/App', () => {
     const NextApp = require('./components/App').default;
     ReactDOM.render(
-      <NextApp />
-      ,
-      document.getElementById('root')
+      <Provider store={store}>
+        <NextApp />
+      </Provider>
+      , document.getElementById('root')
     );
   });
 }

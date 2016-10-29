@@ -1,8 +1,15 @@
 /* @flow */
-import { createStore } from 'redux';
-import reducer from './reducer';
+import { createStore, combineReducers } from 'redux';
+import defaultReducer from './reducer';
+import { routerReducer } from 'react-router-redux';
 
 const initialState = {
-  'text': 'DEFAULT',
+  'defaultReducer': {
+    'text': 'DEFAULT',
+  },
 };
+let reducer = combineReducers({
+  defaultReducer,
+  routing: routerReducer,
+});
 export default createStore(reducer, initialState);

@@ -1,22 +1,16 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import { Provider } from 'react-redux';
-import store from './store';
 
-const Login = require('./pages/LoginPage').default;
+const Router = require('./router').default;
 ReactDOM.render(
-  <Provider store={store}>
-    <Login />
-  </Provider>
+  <Router />
   , document.getElementById('root'));
 
 if (module.hot) {
   module.hot.accept('./pages/LoginPage', () => {
-    const NextLogin = require('./pages/LoginPage').default;
+    const NextRouter = require('./router').default;
     ReactDOM.render(
-      <Provider store={store}>
-        <NextLogin />
-      </Provider>
+      <NextRouter />
       , document.getElementById('root')
     );
   });

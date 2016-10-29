@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import request from '../request';
 import { remote } from 'electron';
 import React, { PropTypes } from 'react';
-import styles from './Login.css';
+import styles from './LoginPage.css';
 
-class Login extends React.Component {
+class LoginPage extends React.Component {
   loginWithGitHub() {
     // Your GitHub applications Credentials
     const options = {
@@ -92,7 +92,7 @@ class Login extends React.Component {
     );
   }
 }
-Login.propTypes = {
+LoginPage.propTypes = {
   text: PropTypes.string.isRequired,
 };
 function select(state) {
@@ -100,4 +100,4 @@ function select(state) {
     text: state.text,
   };
 }
-export default connect(select)(Login);
+export default connect(select)(LoginPage);

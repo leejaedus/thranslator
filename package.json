@@ -58,8 +58,8 @@
     "flow": "./node_modules/.bin/flow"
   },
   "scripts": {
-    "hot-server": "cross-env NODE_ENV=development node -r babel-register ./dev/server.development.js",
-    "start-hot": "cross-env HOT=1 NODE_ENV=development electron -r babel-register -r babel-polyfill ./dev/main.development",
+    "hot-server": "cross-env NODE_ENV=development node -r babel-register ./server/server.development.js",
+    "start-hot": "cross-env HOT=1 NODE_ENV=development electron -r babel-register -r babel-polyfill ./server/main.development",
     "dev": "concurrently --kill-others \"npm run hot-server\" \"npm run start-hot\""
   },
   "babel": {

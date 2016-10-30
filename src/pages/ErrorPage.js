@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class ErrorPage extends React.Component {
   render() {
     return (
-      <div></div>
+      <div>Not Found</div>
     )
   }
 }

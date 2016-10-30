@@ -7,7 +7,7 @@ ReactDOM.render(
   , document.getElementById('root'));
 
 if (module.hot) {
-  module.hot.accept('./pages/LoginPage', () => {
+  module.hot.accept('./router', () => {
     const NextRouter = require('./router').default;
     ReactDOM.render(
       <NextRouter />

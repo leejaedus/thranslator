@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class IndexPage extends React.Component {
   render() {
     return (
-      <div></div>
+      <div> THIS IS INDEX</div>
     )
   }
 }

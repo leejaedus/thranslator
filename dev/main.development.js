@@ -6,11 +6,12 @@ const { BrowserWindow } = electron;
 // 윈도우 객체를 전역에 유지합니다. 만약 이렇게 하지 않으면
 // 자바스크립트 GC가 일어날 때 창이 멋대로 닫혀버립니다.
 let win;
+const PORT = process.env.PORT || 3000;
 function createWindow () {
   // 새로운 브라우저 창을 생성합니다.
   win = new BrowserWindow({ width: 1024, height: 768, titleBarStyle: 'hidden' });
   // 그리고 현재 디렉터리의 index.html을 로드합니다.
-  win.loadURL(`file://${__dirname}/../src/index.html`);
+  win.loadURL(`http://localhost:${PORT}`);
   // 개발자 도구를 엽니다.
   win.webContents.openDevTools();
   // 창이 닫히면 호출됩니다.

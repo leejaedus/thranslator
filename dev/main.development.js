@@ -9,12 +9,12 @@ const { BrowserWindow } = electron;
 let win;
 const PORT = process.env.PORT || 3000;
 
-function createWindow () {
+function createWindow() {
   installExtension(REACT_DEVELOPER_TOOLS);
   installExtension(REDUX_DEVTOOLS);
 
   // 새로운 브라우저 창을 생성합니다.
-  win = new BrowserWindow({ width: 1024, height: 768, titleBarStyle: 'hidden' });
+  win = new BrowserWindow({ width: 1024, height: 768 + 250 });
   // 그리고 현재 디렉터리의 index.html을 로드합니다.
   win.loadURL(`http://localhost:${PORT}`);
   // 개발자 도구를 엽니다.

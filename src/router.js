@@ -9,14 +9,27 @@ import React from 'react';
 
 const history = syncHistoryWithStore(browserHistory, store);
 
+function loginRequired(nextState, replace) {
+
+  const token = window.localStorage.getItem('githubtoken');
+  if (token) {
+    return;
+  }
+
+  replace({
+    pathname: '/login',
+    state: { nextPathname: nextState.location.pathname }
+  });
+}
+
 export default () => (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/">
         <IndexRedirect to="/index"/>
+        <Route path="index" component={IndexPage} onEnter={loginRequired}/>
+        <Route path="login" component={LoginPage}/>
       </Route>
-      <Route path="/index" component={IndexPage}/>
-      <Route path="/login" component={LoginPage}/>
       <Route path="*" component={ErrorPage}/>
     </Router>
   </Provider>

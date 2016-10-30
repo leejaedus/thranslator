@@ -11,6 +11,7 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 function loginRequired(nextState, replace) {
 
+  console.log(nextState);
   const token = window.localStorage.getItem('githubtoken');
   if (token) {
     return;

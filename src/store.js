@@ -1,10 +1,7 @@
 /* @flow */
-import { createStore, combineReducers } from 'redux';
-import defaultReducer from './reducer';
-import { routerReducer } from 'react-router-redux';
+import { createStore } from 'redux';
+import rootReducer from './reducers/root';
 
-let reducer = combineReducers({
-  'default': defaultReducer,
-  routing: routerReducer,
-});
-export default createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+export default store;

@@ -1,12 +1,15 @@
 /* @flow */
 import { connect } from 'react-redux';
-import request from '../request';
 import { remote } from 'electron';
 import React, { PropTypes } from 'react';
 import styles from './LoginPage.css';
+import request from '../request';
+import * as LoginActions from '../actions/LoginActions';
 
 class LoginPage extends React.Component {
   loginWithGitHub() {
+    const { dispatch } = this.props;
+
     // Your GitHub applications Credentials
     const options = {
       client_id: 'dce139e84f0222db7a45',
@@ -21,14 +24,14 @@ class LoginPage extends React.Component {
     authWindow.loadURL(authUrl);
     authWindow.show();
 
-    const requestGithubToken = (options, code) => {
+    const requestGitHubToken = (options, code) => {
       request
         .post('https://github.com/login/oauth/access_token', {
           client_id: options.client_id,
           client_secret: options.client_secret,
           code: code,
         })
-        .then((json) => window.localStorage.setItem('githubtoken', json.data.access_token));
+        .then((json) => dispatch(LoginActions.LOGIN, json.data.access_token));
     };
 
     const handleCallback = (url) => {
@@ -43,7 +46,7 @@ class LoginPage extends React.Component {
 
       // If there is a code, proceed to get token from github
       if (code) {
-        requestGithubToken(options, code);
+        requestGitHubToken(options, code);
       } else if (error) {
         alert('Oops! Something went wrong and we couldn\'t log you in using Github. Please try again.');
       }
@@ -75,13 +78,9 @@ class LoginPage extends React.Component {
               <br/>
               <br/>
               <br/>
-              {/*<button onClick={() => dispatch(Actions.defaultAction("Thranslator"))}>TypeA</button>*/}
-              {/*<button onClick={() => dispatch(Actions.defaultAction("TypeB"))}>TypeB</button>*/}
-              {/*<button onClick={() => dispatch(Actions.defaultAction("TypeC"))}>TypeC</button>*/}
-
               <button
                 className="btn btn-block btn-social btn-github"
-                onClick={this.loginWithGitHub}
+                onClick={() => this.loginWithGitHub()}
               >
                 <span className="fa fa-github"></span> Sign in with GitHub
               </button>
@@ -93,11 +92,13 @@ class LoginPage extends React.Component {
   }
 }
 LoginPage.propTypes = {
-  text: PropTypes.string.isRequired,
+  token: PropTypes.string.isRequired,
 };
+LoginPage.defaultProps = {};
+
 function select(state) {
   return {
-    text: state.text,
+    token: state.login.token,
   };
 }
 export default connect(select)(LoginPage);

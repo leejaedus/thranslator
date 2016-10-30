@@ -1,3 +1,4 @@
+import installExtension, { REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } from 'electron-devtools-installer';
 const electron = require('electron');
 // 애플리케이션 생명주기를 조작 하는 모듈.
 const { app } = electron;
@@ -7,7 +8,11 @@ const { BrowserWindow } = electron;
 // 자바스크립트 GC가 일어날 때 창이 멋대로 닫혀버립니다.
 let win;
 const PORT = process.env.PORT || 3000;
+
 function createWindow () {
+  installExtension(REACT_DEVELOPER_TOOLS);
+  installExtension(REDUX_DEVTOOLS);
+
   // 새로운 브라우저 창을 생성합니다.
   win = new BrowserWindow({ width: 1024, height: 768, titleBarStyle: 'hidden' });
   // 그리고 현재 디렉터리의 index.html을 로드합니다.

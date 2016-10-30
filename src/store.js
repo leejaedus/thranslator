@@ -3,13 +3,8 @@ import { createStore, combineReducers } from 'redux';
 import defaultReducer from './reducer';
 import { routerReducer } from 'react-router-redux';
 
-const initialState = {
-  'defaultReducer': {
-    'text': 'DEFAULT',
-  },
-};
 let reducer = combineReducers({
-  defaultReducer,
+  'default': defaultReducer,
   routing: routerReducer,
 });
-export default createStore(reducer, initialState);
+export default createStore(reducer);

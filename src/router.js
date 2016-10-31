@@ -10,7 +10,6 @@ import React from 'react';
 export const history = syncHistoryWithStore(browserHistory, store);
 
 function loginRequired(nextState, replace) {
-  console.log(23123);
   const token = window.localStorage.getItem('githubtoken');
   if (token) {
     return;

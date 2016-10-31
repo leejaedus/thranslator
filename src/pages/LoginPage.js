@@ -5,6 +5,7 @@ import React, { PropTypes } from 'react';
 import styles from './LoginPage.css';
 import request from '../request';
 import * as LoginActions from '../actions/LoginActions';
+import { history } from '../router';
 
 class LoginPage extends React.Component {
   loginWithGitHub() {
@@ -31,7 +32,10 @@ class LoginPage extends React.Component {
           client_secret: options.client_secret,
           code: code,
         })
-        .then((json) => dispatch(LoginActions.login(json.data.access_token)));
+        .then((json) => {
+          dispatch(LoginActions.login(json.data.access_token));
+          history.push('/index');
+        });
     };
 
     const handleCallback = (url) => {

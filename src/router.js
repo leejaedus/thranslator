@@ -7,9 +7,10 @@ import store from './store';
 import { Provider } from 'react-redux';
 import React from 'react';
 
-const history = syncHistoryWithStore(browserHistory, store);
+export const history = syncHistoryWithStore(browserHistory, store);
 
 function loginRequired(nextState, replace) {
+  console.log(23123);
   const token = window.localStorage.getItem('githubtoken');
   if (token) {
     return;

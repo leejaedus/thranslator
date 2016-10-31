@@ -14,7 +14,7 @@ function createWindow() {
   installExtension(REDUX_DEVTOOLS);
 
   // 새로운 브라우저 창을 생성합니다.
-  win = new BrowserWindow({ width: 1024, height: 768 + 250 });
+  win = new BrowserWindow({ width: 1024, height: 768 + 250, webPreferences: { webSecurity: false } });
   // 그리고 현재 디렉터리의 index.html을 로드합니다.
   win.loadURL(`http://localhost:${PORT}`);
   // 개발자 도구를 엽니다.

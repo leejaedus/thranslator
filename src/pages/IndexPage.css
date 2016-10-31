@@ -1,0 +1,46 @@
+:root {
+  --leftWidth: 400px;
+  --primaryColor: #eb7373;
+  --primaryColorDark: #cf5555;
+}
+
+.left {
+  width: var(--leftWidth);
+  height: 100%;
+  float: left;
+  background-color: var(--primaryColor);
+}
+
+.box {
+  height: 50%;
+  border: solid 1px var(--primaryColorDark);
+  line-height: 2.2;
+}
+
+.box * {
+  color: #fff;
+  cursor: pointer;
+}
+
+.boxHeader {
+  font-size: 24px;
+}
+
+.boxLightHeader {
+  font-size: 24px;
+  font-weight: 200;
+}
+
+.mb {
+  margin-bottom: 40px;
+}
+
+.boxContent {
+  font-size: 14px;
+}
+
+.right {
+  margin-left: var(--leftWidth);
+  height: 100%;
+  padding: 70px;
+}

@@ -31,7 +31,7 @@ class LoginPage extends React.Component {
           client_secret: options.client_secret,
           code: code,
         })
-        .then((json) => dispatch(LoginActions.LOGIN, json.data.access_token));
+        .then((json) => dispatch(LoginActions.login(json.data.access_token)));
     };
 
     const handleCallback = (url) => {

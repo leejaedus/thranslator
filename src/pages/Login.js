@@ -2,12 +2,12 @@
 import { connect } from 'react-redux';
 import { remote } from 'electron';
 import React, { PropTypes } from 'react';
-import styles from './LoginPage.css';
+import styles from './Login.css';
 import request from '../request';
 import * as LoginActions from '../actions/LoginActions';
 import { history } from '../router';
 
-class LoginPage extends React.Component {
+class Login extends React.Component {
   loginWithGitHub() {
     const { dispatch } = this.props;
 
@@ -95,14 +95,13 @@ class LoginPage extends React.Component {
     );
   }
 }
-LoginPage.propTypes = {
+Login.propTypes = {
   token: PropTypes.string.isRequired,
 };
-LoginPage.defaultProps = {};
 
 function select(state) {
   return {
     token: state.login.token,
   };
 }
-export default connect(select)(LoginPage);
+export default connect(select)(Login);

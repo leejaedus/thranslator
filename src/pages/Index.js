@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-class IndexPage extends React.Component {
+class Index extends React.Component {
   render() {
     return (
       <div> THIS IS INDEX</div>
@@ -9,4 +9,4 @@ class IndexPage extends React.Component {
   }
 }
 
-export default connect()(IndexPage);
+export default connect()(Index);

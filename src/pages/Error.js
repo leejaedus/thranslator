@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-class ErrorPage extends React.Component {
+class Error extends React.Component {
   render() {
     return (
       <div>Not Found</div>
@@ -9,4 +9,4 @@ class ErrorPage extends React.Component {
   }
 }
 
-export default connect()(ErrorPage);
+export default connect()(Error);

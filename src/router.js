@@ -1,7 +1,7 @@
 import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
-import LoginPage from './pages/LoginPage';
-import ErrorPage from './pages/ErrorPage';
-import IndexPage from './pages/IndexPage';
+import Login from './pages/Login';
+import Error from './pages/Error';
+import Index from './pages/Index';
 import { syncHistoryWithStore } from 'react-router-redux';
 import store from './store';
 import { Provider } from 'react-redux';
@@ -26,10 +26,10 @@ export default () => (
     <Router history={history}>
       <Route path="/">
         <IndexRedirect to="/index"/>
-        <Route path="index" component={IndexPage} onEnter={loginRequired}/>
-        <Route path="login" component={LoginPage}/>
+        <Route path="index" component={Index} onEnter={loginRequired}/>
+        <Route path="login" component={Login}/>
       </Route>
-      <Route path="*" component={ErrorPage}/>
+      <Route path="*" component={Error}/>
     </Router>
   </Provider>
 );

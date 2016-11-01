@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import styles from './IndexPage.css';
+import styles from './Index.css';
 import classnames from 'classnames';
 
 class Index extends React.Component {

@@ -15,7 +15,7 @@ class Login extends React.Component {
     const options = {
       client_id: 'dce139e84f0222db7a45',
       client_secret: 'dbbdac3db0976c2f9b73838d0863c256bc271a1a',
-      scopes: ["user:email", "notifications"] // Scopes limit access for OAuth tokens.
+      scopes: ['user', 'repo', 'gist', 'notifications']
     };
 
     // Build the OAuth consent page URL

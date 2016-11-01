@@ -2,13 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styles from './Index.css';
 import classnames from 'classnames';
+import { history } from '../router';
 
 class Index extends React.Component {
+
+  linkToProjectCreation() {
+    history.push('/projects/create');
+  }
+
   render() {
     return (
       <div className="fullScreen">
         <div className={styles.left}>
-          <div className={styles.box}>
+          <div className={styles.box} onClick={() => this.linkToProjectCreation()}>
             <div className="middleOuter">
               <div className="middle">
                 <div className={styles.boxHeader}>프로젝트 생성</div>

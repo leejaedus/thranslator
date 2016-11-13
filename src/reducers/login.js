@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import * as LoginActions from '../actions/LoginActions';
 import github from 'octonode';
 

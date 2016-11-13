@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 import { connect } from 'react-redux';
 import { remote } from 'electron';
 import React, { PropTypes } from 'react';

@@ -14,7 +14,7 @@ class Login extends React.Component {
     // Your GitHub applications Credentials
     const options = {
       client_id: 'dce139e84f0222db7a45',
-      client_secret: 'dbbdac3db0976c2f9b73838d0863c256bc271a1a',
+      client_secret: '510ef36458902f1dcbb133a60c6f744168dd15cf',
       scopes: ['user', 'repo', 'gist', 'notifications']
     };
 

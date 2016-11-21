@@ -58,6 +58,7 @@
     "style-loader": "^0.13.1",
     "tcomb": "^3.2.15",
     "url-loader": "^0.5.7",
+    "uuid": "^3.0.0",
     "webpack": "^1.13.3",
     "webpack-dashboard": "^0.2.0",
     "webpack-dev-middleware": "^1.8.4",
@@ -71,9 +72,9 @@
     "flow": "./node_modules/.bin/flow"
   },
   "scripts": {
-    "hot-server": "cross-env NODE_ENV=development node -r babel-register ./server/server.development.js",
-    "start-hot": "cross-env HOT=1 NODE_ENV=development electron -r babel-register -r babel-polyfill ./server/main.development --remote-debugging-port=1417",
-    "dev": "concurrently --kill-others \"npm run hot-server\" \"npm run start-hot\""
+    "1": "cross-env NODE_ENV=development node -r babel-register ./server/server.development.js",
+    "2": "cross-env HOT=1 NODE_ENV=development electron -r babel-register -r babel-polyfill ./server/main.development",
+    "dev": "concurrently --kill-others \"npm run 1\" \"npm run 2\""
   },
   "babel": {
     "presets": [

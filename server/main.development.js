@@ -1,9 +1,10 @@
 import installExtension, { REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } from 'electron-devtools-installer';
 const electron = require('electron');
 // 애플리케이션 생명주기를 조작 하는 모듈.
-const { app } = electron;
+const {app} = electron;
 // 네이티브 브라우저 창을 만드는 모듈.
-const { BrowserWindow } = electron;
+const {BrowserWindow} = electron;
+const {ipcMain} = electron;
 // 윈도우 객체를 전역에 유지합니다. 만약 이렇게 하지 않으면
 // 자바스크립트 GC가 일어날 때 창이 멋대로 닫혀버립니다.
 let win;
@@ -14,7 +15,13 @@ function createWindow() {
   installExtension(REDUX_DEVTOOLS);
 
   // 새로운 브라우저 창을 생성합니다.
-  win = new BrowserWindow({ width: 1024, height: 768 + 250, webPreferences: { webSecurity: false } });
+  win = new BrowserWindow({
+    width: 1024,
+    height: 768 + 250,
+    webPreferences: {
+      webSecurity: false
+    }
+  });
   // 그리고 현재 디렉터리의 index.html을 로드합니다.
   win.loadURL(`http://localhost:${PORT}`);
   // 개발자 도구를 엽니다.
@@ -50,3 +57,5 @@ app.on('activate', () => {
 // 이 파일엔 제작할 애플리케이션에 특화된 메인 프로세스 코드를
 // 포함할 수 있습니다. 또한 파일을 분리하여 require하는 방법으로
 // 코드를 작성할 수도 있습니다.
+
+require('./ipcMain');

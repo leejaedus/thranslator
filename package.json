@@ -45,6 +45,7 @@
     "fs-extra": "^1.0.0",
     "html-webpack-plugin": "^2.24.1",
     "json-loader": "^0.5.4",
+    "localforage": "^1.4.3",
     "octonode": "^0.7.6",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",

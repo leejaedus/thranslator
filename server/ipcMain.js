@@ -21,7 +21,7 @@ function fail(args: Object): Object {
 
 ipcMain.on('create-repo-start', (event, arg) => {
   const {token, values} = arg
-  const regexp = /[a-z0-9\-]*/gi
+  const regexp = /[a-z0-9\- ]*/gi
   const params = {
     name: values.name,
     description: values.name,
@@ -35,6 +35,7 @@ ipcMain.on('create-repo-start', (event, arg) => {
 
   const me = github.client(token).me()
   const createRepo = Promise.promisify(me.createRepo.bind(me))
+  params.name = params.name.replace(/ /i, '-')
 
   createRepo(params)
     .then((res) => {

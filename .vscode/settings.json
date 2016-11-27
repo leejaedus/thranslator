@@ -4,5 +4,6 @@
   "code-runner.defaultLanguage": "python",
   "code-runner.executorMap": {
     "python": "$HOME/.virtualenvs/thranslator/bin/python3.5"
-  }
+  },
+  "react.beautify.formatter": "esformatter"
 }

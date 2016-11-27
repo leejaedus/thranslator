@@ -6,6 +6,7 @@ import styles from './Login.css';
 import request from '../request';
 import * as LoginActions from '../actions/LoginActions';
 import { history } from '../router';
+import { push } from 'react-router-redux'
 import db from '../db'
 
 class Login extends React.Component {
@@ -44,7 +45,7 @@ class Login extends React.Component {
             .setItem('githubToken', token)
             .then(() => {
               dispatch(LoginActions.login(token));
-              history.push('/index');
+              location.href = '/'
             })
         });
     };

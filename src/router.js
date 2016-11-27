@@ -13,7 +13,7 @@ export const history = syncHistoryWithStore(browserHistory, store)
 
 function loginRequired(nextState, replace, callback) {
   return db
-    .getItem('aasdsad')
+    .getItem('githubToken')
     .then(token => {
       if (token === null || token === undefined) {
         replace({
@@ -22,8 +22,8 @@ function loginRequired(nextState, replace, callback) {
             nextPathname: nextState.location.pathname
           }
         })
-        callback()
       }
+      callback()
     })
 }
 

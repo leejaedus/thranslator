@@ -3,6 +3,7 @@ import validate from 'webpack-validator';
 
 export default validate({
   module: {
+    noParse: /node_modules\/localforage\/dist\/localforage.js/,
     loaders: [{
       test: /\.js$/,
       loaders: ['babel-loader'],

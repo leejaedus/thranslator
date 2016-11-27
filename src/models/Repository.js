@@ -4,13 +4,15 @@ export default class Repository {
 
   static key : string = 'Repository'
   static db : Object = db.createInstance({name: Repository.key})
-
+  static fromObject(rawRepo: Object): Repository {
+    return new Repository(rawRepo.uuid, rawRepo.name, rawRepo.fullName, rawRepo.description, rawRepo.sshUrl, rawRepo.localPath)
+  }
   static get(uuid : string) : Promise {
     return Repository
       .db
       .getItem(uuid)
       .then(rawRepo => {
-        const repo = new Repository(rawRepo.uuid, rawRepo.name, rawRepo.fullName, rawRepo.remotePath, rawRepo.localPath)
+        const repo = Repository.fromObject(rawRepo)
         return Promise.resolve(repo)
       })
   }
@@ -18,14 +20,16 @@ export default class Repository {
   uuid : string
   name : string
   fullName : string
-  remotePath : string
+  description : string
+  sshUrl : string
   localPath : string
 
-  constructor(uuid : string, name : string, fullName : string, remotePath : string, localPath : string) {
+  constructor(uuid : string, name : string, fullName : string, description : string, sshUrl : string, localPath : string) {
     this.uuid = uuid
     this.name = name
     this.fullName = fullName
-    this.remotePath = remotePath
+    this.description = description
+    this.sshUrl = sshUrl
     this.localPath = localPath
   }
 
@@ -33,6 +37,7 @@ export default class Repository {
     return Repository
       .db
       .setItem(this.uuid, this)
+      .then(() => Promise.resolve(this))
   }
 
 }

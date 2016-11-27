@@ -6,7 +6,6 @@ import ProjectCreationForm from '../components/ProjectCreationForm'
 import github from 'octonode'
 import {remote, ipcRenderer} from 'electron'
 import Promise from 'bluebird'
-import db from '../db'
 import Repository from '../models/Repository'
 
 const propTypes = {
@@ -18,8 +17,7 @@ class ProjectCreation extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      repo: null,
-      destDir: null
+      repo: null
     }
   }
 
@@ -28,13 +26,6 @@ class ProjectCreation extends React.Component {
     const promise = new Promise((resolve, reject) => {
       ipcRenderer.on('create-repo-end', (event, arg) => {
 
-        const repoObject = new Repository("123123", "a", "b", "C", "d")
-        repoObject.save()
-        Repository
-          .get("123123")
-          .then(repo => {
-            console.log(repo)
-          })
         if (arg.success) {
           resolve(arg)
         } else {
@@ -45,9 +36,12 @@ class ProjectCreation extends React.Component {
 
     ipcRenderer.send('create-repo-start', {token, values})
 
-    return promise.then((arg => {
-      this.setState({destDir: arg.destDir})
-    })).catch((err) => {
+    promise.then(rawRepo => {
+      const repo = Repository.fromObject(rawRepo)
+      return repo.save()
+    }).then((repo) => {
+      this.setState({repo})
+    }).catch(err => {
       throw err
     })
   }

@@ -23,6 +23,7 @@ function loginRequired(nextState, replace, callback) {
           }
         })
       }
+      window.localStorage.token = token
       callback()
     })
 }
@@ -34,7 +35,7 @@ export default () => (
         <IndexRedirect to="/index" />
         <Route path="index" component={ Index } onEnter={ loginRequired } />
         <Route path="login" component={ Login } />
-        <Route path="projects">
+        <Route path="projects" onEnter={ loginRequired }>
           <Route path="create" component={ ProjectCreation } />
         </Route>
       </Route>

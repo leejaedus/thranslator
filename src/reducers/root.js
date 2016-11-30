@@ -1,11 +1,9 @@
 // @flow
-import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
-import { reducer as formReducer } from 'redux-form';
-import login from './login';
+import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
+import { reducer as formReducer } from 'redux-form'
 
 const rootReducer = combineReducers({
-  login,
   routing: routerReducer,
   form: formReducer,
 });

@@ -41,7 +41,7 @@ class ProjectCreation extends React.Component {
       })
       .then(repo => {
         this.setState({ repo })
-        console.log('Done!');
+        console.log('Done!')
       })
       .catch(err => {
         throw new SubmissionError(err)

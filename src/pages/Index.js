@@ -1,13 +1,13 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import styles from './Index.css';
-import classnames from 'classnames';
-import { history } from '../router';
+import React from 'react'
+import { connect } from 'react-redux'
+import styles from './Index.css'
+import classnames from 'classnames'
+import { history } from '../router'
 
 class Index extends React.Component {
 
   linkToProjectCreation() {
-    history.push('/projects/create');
+    history.push('/projects/create')
   }
 
   render() {
@@ -39,4 +39,4 @@ class Index extends React.Component {
   }
 }
 
-export default connect()(Index);
+export default connect()(Index)

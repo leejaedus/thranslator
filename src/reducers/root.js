@@ -6,6 +6,6 @@ import { reducer as formReducer } from 'redux-form'
 const rootReducer = combineReducers({
   routing: routerReducer,
   form: formReducer,
-});
+})
 
-export default rootReducer;
+export default rootReducer

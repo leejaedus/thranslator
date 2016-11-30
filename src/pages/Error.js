@@ -1,5 +1,5 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import { connect } from 'react-redux'
 
 class Error extends React.Component {
   render() {
@@ -9,4 +9,4 @@ class Error extends React.Component {
   }
 }
 
-export default connect()(Error);
+export default connect()(Error)

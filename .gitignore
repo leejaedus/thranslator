@@ -13,6 +13,7 @@
 .idea/gradle.xml
 .idea/libraries
 .idea/mongoSettings.xml
+.idea/codeStyleSettings.xml
 *.iws
 /out/
 .idea_modules/

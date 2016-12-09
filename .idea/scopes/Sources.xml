@@ -1,3 +1,3 @@
 <component name="DependencyValidationManager">
-  <scope name="Sources" pattern="file[thranslator]:config/*||file[thranslator]:server/*||file[thranslator]:src/*" />
+  <scope name="Sources" pattern="file[thranslator]:config//*||file[thranslator]:server//*||file[thranslator]:src//*||file[thranslator]:static//*" />
 </component>

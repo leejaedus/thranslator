@@ -1,12 +1,42 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import { connect } from 'react-redux'
+import styles from './Index.css'
+import classnames from 'classnames'
+import { history } from '../router'
 
 class Index extends React.Component {
+
+  linkToProjectCreation() {
+    history.push('/projects/create')
+  }
+
   render() {
     return (
-      <div> THIS IS INDEX</div>
+      <div className="fullScreen">
+        <div className={styles.left}>
+          <div className={styles.box} onClick={() => this.linkToProjectCreation()}>
+            <div className="middleOuter">
+              <div className="middle">
+                <div className={styles.boxHeader}>프로젝트 생성</div>
+                <div className={styles.boxContent}>새로운 공동 번역 작업을 시작합니다</div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.box}>
+            <div className="middleOuter">
+              <div className="middle">
+                <div className={styles.boxHeader}>기존 프로젝트 불러오기</div>
+                <div className={styles.boxContent}>진행중이던 프로젝트 폴더를 불러옵니다</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={styles.right}>
+          <div className={classnames(styles.boxLightHeader, styles.mb)}>최근 작업한 프로젝트</div>
+        </div>
+      </div>
     )
   }
 }
 
-export default connect()(Index);
+export default connect()(Index)

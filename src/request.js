@@ -1,5 +1,5 @@
-/* @flow */
-import axios from 'axios';
+// @flow
+import axios from 'axios'
 
 export default axios.create({
   withCredentials: true,
@@ -7,4 +7,4 @@ export default axios.create({
     Accept: 'application/json',
     'Content-Type': 'application/json',
   }
-});
+})

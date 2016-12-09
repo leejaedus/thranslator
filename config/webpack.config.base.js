@@ -1,8 +1,9 @@
-import path from 'path';
-import validate from 'webpack-validator';
+import path from 'path'
+import validate from 'webpack-validator'
 
 export default validate({
   module: {
+    noParse: /node_modules\/localforage\/dist\/localforage.js/,
     loaders: [{
       test: /\.js$/,
       loaders: ['babel-loader'],
@@ -33,4 +34,4 @@ export default validate({
     // put your node 3rd party libraries which can't be built with webpack here
     // (mysql, mongodb, and so on..)
   ]
-});
+})
